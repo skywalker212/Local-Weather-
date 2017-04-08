@@ -1,0 +1,13 @@
+.main-body {
+    font-family: 'Roboto';
+}
+
+.icon{
+  font-size: 80px;
+  margin-top: 20px;
+}
+
+.weather{
+  padding: 30px 0;
+  text-align: center;
+}
