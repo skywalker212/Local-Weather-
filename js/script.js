@@ -13,54 +13,54 @@ function locate(position) {
         url: "http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=f2d9f7e154f7df5540781724fc515a2e&lat=" + latitude + "&lon=" + longitude,
         dataType: "json",
         success: function(json) {
-            var temperature_c = json.main.temp - 272.150;
-            var temperature_f = 1.8 * temperature_c + 32;
+            temperature_c = json.main.temp - 272.150;
+            temperature_f = 1.8 * temperature_c + 32;
             var city_name = json.name;
             var weather_id = json.weather[0].id;
             var weather_condition = json.weather[0].main;
             var hours = (new Date()).getHours();
             $(".city").html("You are Currently in: " + city_name);
-            $(".temperature").html("Temperature: " + temperature_c);
+            $(".value").html("Temperature: " + temperature_c);
             $(".image").html("<i class=\"owf owf-" + weather_id + "\"></i>");
             $(".sky").html("Weather Condition: " + weather_condition);
             if (String(weather_id).match(/2[0-9][0-9]/g)) {
               $(".status").html("Thunderstorm");
-                if (hours >= 7 && hours <= 6) {
+                if (hours >= 7 && hours <= 18) {
                     $("#image").attr("class", "icon wi wi-day-thunderstorm");
                 } else {
                     $("#image").attr("class", "icon wi wi-night-thunderstorm");
                 }
             } else if (String(weather_id).match(/3[0-9][0-9]/g)) {
               $(".status").html("Drizzle");
-                if (hours >= 7 && hours <= 6) {
+                if (hours >= 7 && hours <= 18) {
                     $("#image").attr("class", "icon wi wi-day-rain-mix");
                 } else {
                     $("#image").attr("class", "icon wi wi-night-rain-mix");
                 }
             } else if (String(weather_id).match(/5[0-9][0-9]/g)) {
               $(".status").html("Rain");
-                if (hours >= 7 && hours <= 6) {
+                if (hours >= 7 && hours <= 18) {
                     $("#image").attr("class", "icon wi wi-day-hail");
                 } else {
                     $("#image").attr("class", "icon wi wi-night-hail");
                 }
             } else if (String(weather_id).match(/6[0-9][0-9]/g)) {
               $(".status").html("Snow");
-                if (hours >= 7 && hours <= 6) {
+                if (hours >= 7 && hours <= 18) {
                     $("#image").attr("class", "icon wi wi-day-snow");
                 } else {
                     $("#image").attr("class", "icon wi wi-night-alt-snow");
                 }
             } else if (String(weather_id).match(/800/g)) {
               $(".status").html("Clear");
-                if (hours >= 7 && hours <= 6) {
+                if (hours >= 7 && hours <= 18) {
                     $("#image").attr("class", "icon wi wi-day-sunny");
                 } else {
                     $("#image").attr("class", "icon wi wi-night-clear");
                 }
             } else if (String(weather_id).match(/80[0-9]/g)) {
               $(".status").html("Clouds");
-                if (hours >= 7 && hours <= 6) {
+                if (hours >= 7 && hours <= 18) {
                     $("#image").attr("class", "icon wi wi-day-cloudy");
                 } else {
                     $("#image").attr("class", "icon wi wi-night-alt-cloudy");
@@ -105,4 +105,13 @@ function err() {
 }
 $(document).ready(function() {
     getGeolocation();
+    $(".cfbutton").on("click",function() {
+      if ($(".cfbutton").html().indexOf('C')>=0) {
+        $(".cfbutton").html("&deg;F");
+        $(".value").html("Temperature: " +temperature_f);
+      }else {
+        $(".cfbutton").html("&deg;C");
+        $(".value").html("Temperature: " +temperature_c);
+      }
+    })
 });

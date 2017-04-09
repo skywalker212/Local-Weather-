@@ -7,6 +7,15 @@
   margin-top: 20px;
 }
 
+.temp{
+  display: inline-block;
+}
+
+.cfbutton{
+  margin-left: 5px;
+  display: inline-block;
+}
+
 .weather{
   padding: 30px 0;
   text-align: center;
