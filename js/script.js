@@ -10,7 +10,7 @@ function locate(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
     $.ajax({
-        url: "http://api.openweathermap.org/data/2.5/weather?id=524901&APPID=f2d9f7e154f7df5540781724fc515a2e&lat=" + latitude + "&lon=" + longitude,
+        url: "https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=f2d9f7e154f7df5540781724fc515a2e&lat=" + latitude + "&lon=" + longitude,
         dataType: "json",
         success: function(json) {
             temperature_c = json.main.temp - 272.150;

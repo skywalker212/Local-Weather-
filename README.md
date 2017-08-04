@@ -7,4 +7,6 @@ I need to fulfill these [User Stories](https://en.wikipedia.org/wiki/User_story)
   - I can see a different icon or background image (e.g. snowy mountain, hot desert) depending on the weather.  
   - I can push a button to toggle between Fahrenheit and Celsius.  
 
+You can checkout this project by clicking [here](https://local-weather-b20db.firebaseapp.com/)  
+
 Peace
