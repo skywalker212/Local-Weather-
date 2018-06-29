@@ -1,12 +1,20 @@
 .main-body {
     font-family: 'Work Sans';
+    color: white;
+    margin-top: 50px;
+}
+
+html{
+    height: 100vh;
+}
+body{
+    background: linear-gradient(-115deg, #44A9C2, #F09DB4);
+    min-height: 100vh;
 }
 
 h1 {
     font-family: 'Megrim';
     font-size: 50px;
-    background-color: #2364AA;
-    color: #ffffff;
     padding: 5px 0 5px 0;
 }
 
